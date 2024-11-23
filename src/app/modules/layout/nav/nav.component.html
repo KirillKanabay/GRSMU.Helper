@@ -1,1 +1,14 @@
-<p>nav works!</p>
+<p-tabMenu [model]="navItems">
+  <ng-template pTemplate="item" let-item>
+    <a 
+      [routerLink]="item.route" 
+      routerLinkActive="menuitem-link--active"
+      class="p-menuitem-link menuitem-link"
+      >
+      <div class="menuitem-link__container">
+        <span [ngClass]="[item.icon, 'menuitem-link__icon']"></span>
+        <span class="menuitem-link__title">{{ item.title }}</span>
+      </div>
+    </a>
+  </ng-template>
+</p-tabMenu>

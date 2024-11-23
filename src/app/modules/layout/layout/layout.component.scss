@@ -1,0 +1,15 @@
+.layout{
+  &__container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  &__content{
+    flex: 1;
+  }
+  &__menu{
+    align-self: center;
+    width: 100%;
+  }
+}
