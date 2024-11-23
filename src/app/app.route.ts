@@ -7,6 +7,7 @@ import { ProfileRoutesService } from "./modules/profile/services/profile.route.s
 import { NotFoundPageComponent } from "./components/pages/not-found-page/not-found-page.component";
 
 export const AppRoutes: Routes = [
+  { path: '', redirectTo: HomeRoutesService.ROOT_PATH, pathMatch: 'full' },
   { path: AppRoutesService.APP_ROOT_PATH, children: [
     {
       path: HomeRoutesService.ROOT_PATH,
