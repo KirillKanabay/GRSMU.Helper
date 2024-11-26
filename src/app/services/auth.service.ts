@@ -18,9 +18,9 @@ export class AuthService {
     const token = this.telegramService.getInitData();
     const chatId = this.telegramService.getChatId();
 
-    return of({ isStudentCardRegistered: true }).
+    return of({ isStudentCardRegistered: false }).
       pipe(
-        delay(50000),
+        //delay(50000),
         tap((user) => this.appUser$.next(user))
       )
     // this.httpClient.post('https://r9390nk5-7080.euw.devtunnels.ms/api/account/authorization', { token : token, chatId: chatId}).subscribe((res) => console.log(res));

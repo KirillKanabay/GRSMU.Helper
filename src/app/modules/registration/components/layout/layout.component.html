@@ -1,0 +1,20 @@
+<p-stepper [(activeStep)]="activeStep">
+  <p-stepperPanel>
+      <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+          <app-step-stage 
+            icon="pi pi-id-card" 
+            [isActive]="index === activeStep" 
+            (click)="onClick()"/>
+      </ng-template>
+      <ng-template pTemplate="content" let-nextCallback="nextCallback">
+          <app-credentials-form/>
+      </ng-template>
+  </p-stepperPanel>
+  <p-stepperPanel>
+      <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+        <app-step-stage icon="pi pi-list-check" [isActive]="index === activeStep"></app-step-stage>
+      </ng-template>
+      <ng-template pTemplate="content" let-prevCallback="prevCallback">
+      </ng-template>
+  </p-stepperPanel>
+</p-stepper>

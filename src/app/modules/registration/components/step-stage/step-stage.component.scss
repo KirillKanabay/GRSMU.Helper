@@ -1,0 +1,12 @@
+.step-button{
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  &--active {
+    background-color: var(--primary-color);
+  }
+  &__icon {
+    color: white;
+    font-size: 1.5rem;
+  }
+}

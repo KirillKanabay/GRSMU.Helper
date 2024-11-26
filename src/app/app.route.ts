@@ -5,7 +5,7 @@ import { ScheduleRoutesService } from "./modules/schedule/services/schedule.rout
 import { GradesRoutesService } from "./modules/grades/services/grades.route.service";
 import { ProfileRoutesService } from "./modules/profile/services/profile.route.service";
 import { NotFoundPageComponent } from "./components/pages/not-found-page/not-found-page.component";
-import { StudentIdSetupRoutesService } from "./modules/student-id-setup/services/student-id-setup.route.service";
+import { RegistrationRoutesService } from "./modules/registration/services/registration.route.service";
 
 export const AppRoutes: Routes = [
   { path: '', redirectTo: HomeRoutesService.ROOT_PATH, pathMatch: 'full' },
@@ -26,7 +26,10 @@ export const AppRoutes: Routes = [
       path: ProfileRoutesService.ROOT_PATH,
       loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
     },
+    { 
+      path: RegistrationRoutesService.ROOT_PATH,
+      loadChildren: () => import('./modules/registration/registration.module').then(m => m.RegistrationModule)
+    },
   ]},
-  { path: StudentIdSetupRoutesService.ROOT_PATH, loadComponent: () => import('./modules/student-id-setup/student-id-setup.module').then(m => m.StudentIdSetupModule) },
   { path: '**', component: NotFoundPageComponent }
 ]
