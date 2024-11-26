@@ -10,6 +10,7 @@ import { AppRoutesService } from '../../../services/app.route.service';
 })
 export class NavComponent implements OnInit {
   navItems: MenuItem[] | undefined;
+  selectedItem?: MenuItem;
 
   constructor(private readonly appRoutesService: AppRoutesService){}
 
@@ -20,5 +21,6 @@ export class NavComponent implements OnInit {
       { title: 'Журнал', icon: 'pi pi-book', route: this.appRoutesService.gradesUrl },
       { title: 'Профиль', icon: 'pi pi-user', route: this.appRoutesService.profileUrl },
     ]
+    
   }
 }

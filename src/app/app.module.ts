@@ -5,6 +5,7 @@ import { LayoutComponent } from './modules/layout/layout/layout.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.route';
 import { AppSharedModule } from './components/app-shared.module';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   bootstrap: [LayoutComponent],
@@ -14,5 +15,8 @@ import { AppSharedModule } from './components/app-shared.module';
     LayoutModule,
     AppSharedModule
   ],
+  providers: [
+    provideHttpClient(),
+  ]
 })
 export class AppModule {}

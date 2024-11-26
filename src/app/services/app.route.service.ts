@@ -3,6 +3,7 @@ import { ScheduleRoutesService } from '../modules/schedule/services/schedule.rou
 import { ProfileRoutesService } from '../modules/profile/services/profile.route.service';
 import { HomeRoutesService } from '../modules/home/services/home.route.service';
 import { GradesRoutesService } from '../modules/grades/services/grades.route.service';
+import { StudentIdSetupRoutesService } from '../modules/student-id-setup/services/student-id-setup.route.service';
 
 @Injectable({ providedIn: 'root' })
 export class AppRoutesService {
@@ -26,5 +27,9 @@ export class AppRoutesService {
 
   public get profileUrl(): string[] {
     return [AppRoutesService.APP_ROOT_PATH, ProfileRoutesService.ROOT_PATH];
+  }
+
+  public get studentIdSetupUrl(): string[] {
+    return [AppRoutesService.APP_ROOT_PATH, StudentIdSetupRoutesService.ROOT_PATH];
   }
 }
