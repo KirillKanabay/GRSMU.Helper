@@ -1,5 +1,7 @@
 import { Component, computed, input, output } from '@angular/core';
 
+export type StepStageState = 'active' | 'passed' | undefined
+
 @Component({
   selector: 'app-step-stage',
   templateUrl: './step-stage.component.html',
@@ -7,8 +9,9 @@ import { Component, computed, input, output } from '@angular/core';
 })
 export class StepStageComponent {
   icon = input.required<string>();
-  state = input.required<'active' | 'passed' | undefined>();
+  state = input.required<StepStageState>();
   disabled = input(false);
+
   click = output();
 
   onClick(){

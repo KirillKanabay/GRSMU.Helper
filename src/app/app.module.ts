@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.route';
 import { AppSharedModule } from './components/app-shared.module';
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 @NgModule({
   bootstrap: [LayoutComponent],
@@ -17,6 +18,7 @@ import { provideHttpClient } from '@angular/common/http';
   ],
   providers: [
     provideHttpClient(),
+    provideAnimations()
   ]
 })
 export class AppModule {}

@@ -1,12 +1,11 @@
 import { Component, computed, DestroyRef, OnInit, signal } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { AppUser } from '../../../types/user.type';
-import { StudentIdSetupRoutes } from '../../registration/registration.route';
 import { AppRoutesService } from '../../../services/app.route.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-layout',
+  selector: 'app-registration-layout',
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })
@@ -23,10 +22,9 @@ export class LayoutComponent implements OnInit {
   ){}
   
   ngOnInit(): void {
-    console.log('init')
     const authSubscription = this.authService.auth()
       .subscribe({
-        next: this.handleAuth.bind(this),
+        next: (user) => this.handleAuth(user),
       });
 
     this.destroyRef.onDestroy(() => authSubscription.unsubscribe());

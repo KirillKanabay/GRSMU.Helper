@@ -1,0 +1,23 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+
+  &__title{
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .input-container {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  &__submit {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

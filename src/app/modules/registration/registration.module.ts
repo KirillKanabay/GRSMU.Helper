@@ -11,15 +11,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessagesModule } from 'primeng/messages';
-import { LayoutComponent } from './components/layout/layout.component';
+import { RegistrationLayoutComponent } from './components/registration-layout/registration-layout.component';
 import { StepStageComponent } from './components/step-stage/step-stage.component';
 import { CredentialsFormComponent } from './components/credentials-form/credentials-form.component';
+import { GroupInfoFormComponent } from './components/group-info-form/group-info-form.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
+    RegistrationLayoutComponent,
     StepStageComponent,
-    CredentialsFormComponent
+    CredentialsFormComponent,
+    GroupInfoFormComponent
   ],
   imports: [
     RouterModule.forChild(RegistrationRoutes),
@@ -32,7 +36,9 @@ import { CredentialsFormComponent } from './components/credentials-form/credenti
     PasswordModule,
     CommonModule,
     ReactiveFormsModule,
-    MessagesModule
+    MessagesModule,
+    DropdownModule,
+    FloatLabelModule
   ]
 })
 export class RegistrationModule { }

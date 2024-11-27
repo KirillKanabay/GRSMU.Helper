@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
-import { LayoutComponent } from "./components/layout/layout.component";
+import { RegistrationLayoutComponent } from "./components/registration-layout/registration-layout.component";
 
 export const RegistrationRoutes: Routes = [
-  { path: '', component: LayoutComponent },
+  { path: '', component: RegistrationLayoutComponent },
 ];

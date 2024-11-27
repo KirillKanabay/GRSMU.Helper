@@ -1,0 +1,30 @@
+<p-stepper [(activeStep)]="activeStep">
+  <p-stepperPanel>
+      <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+          <app-step-stage 
+            icon="pi pi-id-card" 
+            [state]="getStepStageState(index)"/>
+      </ng-template>
+      <ng-template pTemplate="content" let-nextCallback="nextCallback">
+          <app-credentials-form
+            (submit)="onStudentIdFormSubmit($event)"
+            [isSubmitting]="isBusy()"/>
+      </ng-template>
+  </p-stepperPanel>
+  <p-stepperPanel>
+      <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+        <app-step-stage 
+          icon="pi pi-list-check"
+          [state]="getStepStageState(index)"/>
+      </ng-template>
+      <ng-template pTemplate="content" let-prevCallback="prevCallback">
+        @if(prefilledGroupInfo() && prefilledGroupLookup()){
+          <app-group-info-form 
+            [userGroupInfo]="prefilledGroupInfo()!"
+            [groupLookup]="prefilledGroupLookup()!"
+            [isSubmitting]="isBusy()"
+            (submit)="onGroupInfoFormSubmit($event)"/>
+        }
+      </ng-template>
+  </p-stepperPanel>
+</p-stepper>
