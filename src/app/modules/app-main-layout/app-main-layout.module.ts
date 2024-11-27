@@ -1,5 +1,5 @@
 import { NgModule, OnInit } from '@angular/core';
-import { LayoutComponent } from './layout/layout.component';
+import { AppMainLayoutComponent } from './app-main-layout/app-main-layout.component';
 import { NavComponent } from './nav/nav.component';
 import { RouterOutlet } from '@angular/router';
 import { TabMenuModule } from 'primeng/tabmenu';
@@ -9,16 +9,16 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
-    LayoutComponent, 
+    AppMainLayoutComponent, 
     NavComponent, 
     ScreenLoaderComponent],
-  exports: [LayoutComponent],
+  exports: [AppMainLayoutComponent],
   imports: [
     RouterOutlet, 
     TabMenuModule, 
     NgClass,
     ProgressSpinnerModule],
 })
-export class LayoutModule {
+export class AppMainLayoutModule {
   
 }

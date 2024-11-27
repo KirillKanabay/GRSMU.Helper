@@ -5,11 +5,11 @@ import { AppRoutesService } from '../../../services/app.route.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-registration-layout',
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss',
+  selector: 'app-registration-app-main-layout',
+  templateUrl: './app-main-layout.component.html',
+  styleUrl: './app-main-layout.component.scss',
 })
-export class LayoutComponent implements OnInit {
+export class AppMainLayoutComponent implements OnInit {
   private isStudentCardRegistered = signal<boolean>(false);
   isLoading = signal<boolean>(true);
   showMenu = computed(() => !this.isLoading() && this.isStudentCardRegistered());

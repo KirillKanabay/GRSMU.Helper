@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { AppRoutesService } from '../../../../services/app.route.service';
 
 @Component({
-  selector: 'app-registration-layout',
+  selector: 'app-registration-app-main-layout',
   templateUrl: './registration-layout.component.html',
   styleUrl: './registration-layout.component.scss'
 })
