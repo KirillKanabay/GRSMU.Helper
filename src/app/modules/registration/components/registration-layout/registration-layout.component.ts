@@ -18,7 +18,7 @@ export class RegistrationLayoutComponent {
   private readonly STUDENT_ID_CREDENTIALS_FORM_STEP = 0;
   private readonly GROUP_VERIFICATION_STEP = 1;
 
-  public activeStep = 1;
+  public activeStep = this.STUDENT_ID_CREDENTIALS_FORM_STEP;
   public isBusy = signal(false);
   public prefilledGroupInfo = signal<UserGroupInfoModel | null>({
     faculty: {id: '1',
