@@ -16,14 +16,11 @@ export class CredentialsFormComponent {
   public submit = output<StudentIdCredentialsModel>();
   
   public form = new FormGroup({
-    login: new FormControl('', {
-      validators: [Validators.required]
-    }),
-    password: new FormControl('', {
-      validators: [
-        Validators.required,
-        Validators.pattern(/^\d{2}-\d{5}$/)]
-    })
+    login: new FormControl('', Validators.required),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\d{2}-\d{5}$/)
+    ])
   });
 
   public errors = computed(() => this.externalErrorMessages().map(msg => ({
@@ -32,13 +29,13 @@ export class CredentialsFormComponent {
   })));
 
   public onSubmit() {
-    if(this.form.invalid){
+    if (!this.form.valid) {
       return;
     }
 
     this.submit.emit({
       login: this.form.value.login!,
       password: this.form.value.password!
-    })
+    });
   }
 }
