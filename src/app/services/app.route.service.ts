@@ -8,9 +8,14 @@ import { RegistrationRoutesService } from '../modules/registration/services/regi
 @Injectable({ providedIn: 'root' })
 export class AppRoutesService {
   public static readonly APP_ROOT_PATH = '';
+  public static readonly FATAL_ERROR_PATH = 'fatal-error';
 
   public get rootUrl(): string[] {
     return [AppRoutesService.APP_ROOT_PATH];
+  }
+
+  public get fatalErrorUrl(): string[] {
+    return [AppRoutesService.APP_ROOT_PATH, AppRoutesService.FATAL_ERROR_PATH];
   }
 
   public get homeUrl(): string[] {

@@ -5,8 +5,9 @@ import { AppMainLayoutComponent } from './modules/app-main-layout/app-main-layou
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.route';
 import { AppSharedModule } from './components/app-shared.module';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { AuthInterceptorService } from './interceptors/auth.interceptor';
 
 @NgModule({
   bootstrap: [AppMainLayoutComponent],
@@ -14,10 +15,15 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     RouterModule.forRoot(AppRoutes),
     BrowserModule,
     AppMainLayoutModule,
-    AppSharedModule
+    AppSharedModule,
   ],
   providers: [
-    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
     provideAnimations()
   ]
 })
