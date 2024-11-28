@@ -1,6 +1,6 @@
 import { Component, computed, DestroyRef, OnInit, signal } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
-import { AppUser } from '../../../types/user.type';
+import { AppUser } from '../../../types/account/user.type';
 import { AppRoutesService } from '../../../services/app.route.service';
 import { Router } from '@angular/router';
 

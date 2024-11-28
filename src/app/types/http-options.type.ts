@@ -4,8 +4,8 @@ export interface HttpOptions {
   headers?: HttpHeaders | {
     [header: string]: string | string[];
   };
-  observe: any;
-  responseType?: any;
+  observe: 'body';
+  responseType?: 'json';
   params?: HttpParams | {
     [param: string] : string | string[]
   };
