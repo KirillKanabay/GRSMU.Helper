@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { TelegramService } from './telegram.service';
 import { BehaviorSubject, map, Observable, tap, throwError, catchError, switchMap } from 'rxjs';
 import { AccountModel } from '../types/account/account.model';
-import { ApiService } from './api/api.service';
+import { ApiService } from '../api/api.service';
 import { TokenModel } from '../types/token.model';
 import { AppUserFactory } from '../factories/app-user.factory';
 import { AppRoutesService } from './app.route.service';

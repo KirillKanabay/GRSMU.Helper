@@ -6,9 +6,7 @@
             [state]="getStepStageState(index)"/>
       </ng-template>
       <ng-template pTemplate="content" let-nextCallback="nextCallback">
-          <app-credentials-form
-            (submit)="onStudentIdFormSubmit($event)"
-            [isSubmitting]="isBusy()"/>
+          <app-credentials-form (formSubmit)="onStudentIdFormSubmit($event)"/>
       </ng-template>
   </p-stepperPanel>
   <p-stepperPanel>
@@ -18,12 +16,11 @@
           [state]="getStepStageState(index)"/>
       </ng-template>
       <ng-template pTemplate="content" let-prevCallback="prevCallback">
-        @if(prefilledGroupInfo() && prefilledGroupLookup()){
-          <app-group-info-form 
-            [userGroupInfo]="prefilledGroupInfo()!"
-            [groupLookup]="prefilledGroupLookup()!"
-            [isSubmitting]="isBusy()"
-            (submit)="onGroupInfoFormSubmit($event)"/>
+        @if(prefilledFaculty()){
+          <app-faculty-form 
+            [prefilledFaculty]="prefilledFaculty()!"
+            [isSaveFinishing]="isSaveFinishing()"
+            (submit)="onFacultyFormSubmit()"/>
         }
       </ng-template>
   </p-stepperPanel>

@@ -5,13 +5,14 @@
       <p-dropdown
         [formControl] = "form.controls.faculty"
         [options]="faculties()!"
-        optionLabel="name"
+        optionLabel="value"
         dataKey="id"
         inputId="faculty"
         [style]="{'width' : '100%'}"
         [filter]="true"
-        filterBy="name"
-        emptyFilterMessage = "Результатов не найдено"/>
+        filterBy="value"
+        emptyFilterMessage = "Результатов не найдено"
+        [loading]="isLookupLoading()"/>
       <label for="faculty">Факультет</label>
     </p-floatLabel>
   </div>
@@ -20,12 +21,12 @@
       <p-dropdown
         [formControl] = "form.controls.course"
         [options]="courses()!"
-        optionLabel="name"
+        optionLabel="value"
         dataKey="id"
         inputId="course"
         [style]="{'width' : '100%'}"
         [filter]="true"
-        filterBy="name"
+        filterBy="value"
         emptyFilterMessage = "Результатов не найдено"
         [loading]="isLookupLoading()"/>
       <label for="course">Курс</label>
@@ -36,12 +37,12 @@
       <p-dropdown
         [formControl] = "form.controls.group"
         [options]="groups()!"
-        optionLabel="name"
+        optionLabel="value"
         dataKey="id"
         inputId="group"
         [style]="{'width' : '100%'}"
         [filter]="true"
-        filterBy="name"
+        filterBy="value"
         emptyFilterMessage = "Результатов не найдено"
         [loading]="isLookupLoading()"/>
       <label for="group">Группа</label>
@@ -54,15 +55,15 @@
       severity="secondary" 
       icon="pi pi-pencil" 
       iconPos="right"
-      [disabled]="isEditMode()"
+      [disabled]="isButtonDisabled()"
       (onClick)="onEditClick()"/>
     <p-button 
       type="submit"
       label="Все верно"
       severity="success"
-      [icon]="isSubmitting() ? 'pi pi-spin pi-spinner' : 'pi pi-check'" 
+      [icon]="isSubmitting() || isSaveFinishing() ? 'pi pi-spin pi-spinner' : 'pi pi-check'" 
       iconPos="right" 
-      [disabled]="submitIsDisabled()"/>
+      [disabled]="isButtonDisabled()"/>
   </div>
 </form>
 <p-messages

@@ -1,8 +1,8 @@
-import { Component, computed, DestroyRef, OnInit, signal } from '@angular/core';
-import { AppRoutesService } from '../../../services/app.route.service';
-import { Router } from '@angular/router';
-import { UserService } from '../../../services/user.service';
-import { UserModel } from '../../../types/user/user.model';
+import { Component, computed, DestroyRef, OnInit, signal } from "@angular/core";
+import { UserService } from "../../../../services/user.service";
+import { AppRoutesService } from "../../../../services/app.route.service";
+import { Router } from "@angular/router";
+import { UserModel } from "../../../../api/user/types/user.model";
 
 @Component({
   selector: 'app-main-layout',
@@ -22,20 +22,29 @@ export class AppMainLayoutComponent implements OnInit {
   ){}
   
   ngOnInit(): void {
-    const userSubscription = this.userService.getUserInfo()
+    const userRefreshSubscription = this.userService.refreshUser()
       .subscribe({
-        next: (user) => this.handleAuth(user),
+        next: (user) => {
+          userRefreshSubscription.unsubscribe();
+        },
         error: (err) => {
+          userRefreshSubscription.unsubscribe();
           console.error(err);
           this.isLoading.set(false);
           this.router.navigate(this.appRoutesService.fatalErrorUrl);
         },
       });
+    
+    const userSubscription = this.userService.user.subscribe((user) => this.handleUserChange(user))
 
     this.destroyRef.onDestroy(() => userSubscription.unsubscribe());
   }
 
-  handleAuth(user: UserModel){
+  handleUserChange(user: UserModel | null){
+    if(!user){
+      return;
+    }
+
     this.isLoading.set(false);
 
     if (!user.isStudentCardRegistered){

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { AppRoutesService } from '../../../services/app.route.service';
+import { AppRoutesService } from '../../../../services/app.route.service';
 
 @Component({
   selector: 'app-nav',

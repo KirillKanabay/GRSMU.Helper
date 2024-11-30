@@ -14,7 +14,7 @@ import { MessagesModule } from 'primeng/messages';
 import { RegistrationLayoutComponent } from './components/registration-layout/registration-layout.component';
 import { StepStageComponent } from './components/step-stage/step-stage.component';
 import { CredentialsFormComponent } from './components/credentials-form/credentials-form.component';
-import { GroupInfoFormComponent } from './components/group-info-form/group-info-form.component';
+import { FacultyFormComponent } from './components/faculty-form/faculty-form.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { FloatLabelModule } from 'primeng/floatlabel';
 
@@ -23,7 +23,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
     RegistrationLayoutComponent,
     StepStageComponent,
     CredentialsFormComponent,
-    GroupInfoFormComponent
+    FacultyFormComponent
   ],
   imports: [
     RouterModule.forChild(RegistrationRoutes),
