@@ -1,0 +1,11 @@
+{
+  "cSpell.words": [
+    "'primen",
+    "togglebutton"
+  ],
+  "angular-schematics.schematicsDefaultOptions": {
+    "angular-*": {
+      "style": "scss"
+    }
+  }
+}

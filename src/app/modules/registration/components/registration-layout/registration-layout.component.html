@@ -1,0 +1,27 @@
+<p-stepper [(activeStep)]="activeStep">
+  <p-stepperPanel>
+      <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+          <app-step-stage 
+            icon="pi pi-id-card" 
+            [state]="getStepStageState(index)"/>
+      </ng-template>
+      <ng-template pTemplate="content" let-nextCallback="nextCallback">
+          <app-credentials-form (formSubmit)="onStudentIdFormSubmit($event)"/>
+      </ng-template>
+  </p-stepperPanel>
+  <p-stepperPanel>
+      <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+        <app-step-stage 
+          icon="pi pi-list-check"
+          [state]="getStepStageState(index)"/>
+      </ng-template>
+      <ng-template pTemplate="content" let-prevCallback="prevCallback">
+        @if(prefilledFaculty()){
+          <app-faculty-form 
+            [prefilledFaculty]="prefilledFaculty()!"
+            [isSaveFinishing]="isSaveFinishing()"
+            (submit)="onFacultyFormSubmit()"/>
+        }
+      </ng-template>
+  </p-stepperPanel>
+</p-stepper>

@@ -1,0 +1,10 @@
+<button 
+  class="step-button" 
+  [disabled]="disabled()" 
+  (click)="onClick()"
+  [ngClass]="{
+    'step-button--active' : state() === 'active',
+    'step-button--passed' : state() === 'passed' 
+}">
+  <i [ngClass]="[icon(), 'step-button__icon']"></i>
+</button>

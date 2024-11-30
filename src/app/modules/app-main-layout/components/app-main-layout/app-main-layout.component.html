@@ -1,0 +1,12 @@
+<main class="layout__container">
+  @if(isLoading()){
+    <app-screen-loader/>
+  } @else {
+    <section class="layout__content">
+      <router-outlet />
+    </section>
+  }
+  @if(showMenu()){
+    <app-nav class="layout__menu"/>
+  }
+</main>

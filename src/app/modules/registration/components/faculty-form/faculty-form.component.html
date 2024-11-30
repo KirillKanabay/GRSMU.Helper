@@ -1,0 +1,75 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <h1 class="form__title">Проверка ваших данных</h1>
+  <div class="input-container">
+    <p-floatLabel>
+      <p-dropdown
+        [formControl] = "form.controls.faculty"
+        [options]="faculties()!"
+        optionLabel="value"
+        dataKey="id"
+        inputId="faculty"
+        [style]="{'width' : '100%'}"
+        [filter]="true"
+        filterBy="value"
+        emptyFilterMessage = "Результатов не найдено"
+        [loading]="isLookupLoading()"/>
+      <label for="faculty">Факультет</label>
+    </p-floatLabel>
+  </div>
+  <div class="input-container">
+    <p-floatLabel>
+      <p-dropdown
+        [formControl] = "form.controls.course"
+        [options]="courses()!"
+        optionLabel="value"
+        dataKey="id"
+        inputId="course"
+        [style]="{'width' : '100%'}"
+        [filter]="true"
+        filterBy="value"
+        emptyFilterMessage = "Результатов не найдено"
+        [loading]="isLookupLoading()"/>
+      <label for="course">Курс</label>
+    </p-floatLabel>
+  </div>
+  <div class="input-container">
+    <p-floatLabel>
+      <p-dropdown
+        [formControl] = "form.controls.group"
+        [options]="groups()!"
+        optionLabel="value"
+        dataKey="id"
+        inputId="group"
+        [style]="{'width' : '100%'}"
+        [filter]="true"
+        filterBy="value"
+        emptyFilterMessage = "Результатов не найдено"
+        [loading]="isLookupLoading()"/>
+      <label for="group">Группа</label>
+    </p-floatLabel>
+  </div>
+  <div class="form__submit">
+    <p-button 
+      label="Редактировать" 
+      [text]="true" 
+      severity="secondary" 
+      icon="pi pi-pencil" 
+      iconPos="right"
+      [disabled]="isButtonDisabled()"
+      (onClick)="onEditClick()"/>
+    <p-button 
+      type="submit"
+      label="Все верно"
+      severity="success"
+      [icon]="isSubmitting() || isSaveFinishing() ? 'pi pi-spin pi-spinner' : 'pi pi-check'" 
+      iconPos="right" 
+      [disabled]="isButtonDisabled()"/>
+  </div>
+</form>
+<p-messages
+    [value]="[{
+       severity: 'warn',
+       detail: 'Пожалуйста, проверьте, сходится ли информация о вашей группе. При необходимости внесите изменения!' }]" 
+    [enableService]="false"
+    [closable]="true"/>
+<p-messages [value]="errors()" [enableService]="false" [closable]="false"/>
