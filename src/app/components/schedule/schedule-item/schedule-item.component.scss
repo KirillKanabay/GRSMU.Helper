@@ -1,0 +1,30 @@
+::ng-deep{
+  .p-card-title{
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: var(--surface-900);
+  }
+  .p-card-content {
+    padding: 0;
+  }
+  .p-card {
+    background: var(--pink-50);
+    box-shadow: none;
+    border-radius: 30px;
+  }
+} 
+
+.subject-field {
+  &__container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 7px 0;
+  }
+  &__icon {
+    color: var(--primary-color);
+  }
+  &__value {
+    color: var(--surface-700);
+  }
+}

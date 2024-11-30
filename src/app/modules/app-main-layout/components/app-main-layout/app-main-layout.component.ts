@@ -10,8 +10,8 @@ import { UserModel } from "../../../../api/user/types/user.model";
   styleUrl: './app-main-layout.component.scss',
 })
 export class AppMainLayoutComponent implements OnInit {
-  private isStudentCardRegistered = signal<boolean>(false);
-  isLoading = signal<boolean>(true);
+  private isStudentCardRegistered = signal<boolean>(true);
+  isLoading = signal<boolean>(false);
   showMenu = computed(() => !this.isLoading() && this.isStudentCardRegistered());
 
   constructor(
