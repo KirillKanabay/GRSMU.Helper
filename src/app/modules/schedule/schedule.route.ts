@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { ScheduleComponent } from './components/schedule/schedule.component';
+import { ScheduleLayoutComponent } from './components/schedule-layout/schedule-layout.component';
 
 export const ScheduleRoutes: Routes = [
-  { path: '', component: ScheduleComponent },
+  { path: '', component: ScheduleLayoutComponent },
 ];

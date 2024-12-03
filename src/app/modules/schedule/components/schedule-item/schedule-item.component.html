@@ -1,0 +1,16 @@
+<p-card [header]="subject()!.discipline">
+  <p class="subject-field__container">
+    <span class="subject-field__icon pi pi-graduation-cap"></span>
+    <span class="subject-field__value">{{ subject()!.teacher }}</span>
+  </p>
+  <p class="subject-field__container">
+    <span class="subject-field__icon pi pi-home"></span>
+    <span class="subject-field__value">{{ subject()!.auditory }}</span>
+  </p>
+  @if(subject()!.subGroup){
+    <p class="subject-field__container">
+      <span class="subject-field__icon pi pi-hashtag"></span>
+      <span class="subject-field__value">{{ subject()!.subGroup }}</span>
+    </p>
+  }
+</p-card>

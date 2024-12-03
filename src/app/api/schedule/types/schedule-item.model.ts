@@ -1,8 +1,8 @@
 export interface ScheduleItemModel {
   timeFrom: string;
   timeTo: string;
-  subject: string;
-  teacher: string;
-  room: string;
+  discipline: string;
+  teacher?: string;
+  auditory?: string;
   subGroup?: string;
 }

@@ -1,0 +1,43 @@
+<div class="container">
+<div class="refresh-container">
+  <p-button 
+      label="Обновить" 
+      [text]="true" 
+      icon="pi pi-refresh" 
+      iconPos="right"
+      [disabled]="isLoading()"
+      (click)="onRefreshClick()"/>
+</div>
+@if(!isLoading()){
+  @if(schedule()){
+    <div class="schedule-container">
+      <p-timeline [value]="schedule()?.items">
+        <ng-template pTemplate="content" let-subject>
+          <div class="schedule-item">
+            <app-schedule-item [subject]="subject"/>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="opposite" let-subject>
+          <div class="time__container">
+            <span class="time__from">{{ subject.timeFrom }}</span>
+            <span class="time__to">{{ subject.timeTo }}</span>
+          </div>
+        </ng-template>
+      </p-timeline>  
+    </div>
+  } @else {
+    <app-schedule-not-found/>
+  }
+} @else {
+  <p-timeline [value]="['', '']">
+    <ng-template pTemplate="content">
+      <div class="schedule-item">
+        <p-skeleton height="180px" borderRadius="30px"/>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="opposite" let-subject>
+      <p-skeleton height="30px"/>
+    </ng-template>
+  </p-timeline>
+}
+</div>

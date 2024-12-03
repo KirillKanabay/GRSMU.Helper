@@ -11,12 +11,14 @@
 .refresh-container{
   display: flex;
   justify-content: end;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .schedule-container{
   overflow-y: auto;
-  max-height: 75vh;
+  height: 100%;
+  flex-grow: 1;
+  max-height: calc(100vh - 220px);
 }
 
 .time{

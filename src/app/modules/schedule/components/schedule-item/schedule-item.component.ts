@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { ScheduleItemModel } from '../../../modules/schedule/types/schedule-item.model';
+import { ScheduleItemModel } from '../../../../api/schedule/types/schedule-item.model';
 
 @Component({
   selector: 'app-schedule-item',
