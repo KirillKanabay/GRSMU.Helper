@@ -1,0 +1,11 @@
+<div class="container">
+  <p-tabMenu 
+    [model]="days()" 
+    [scrollable]="true" 
+    [(activeItem)]="activeDay"
+    />
+  <app-schedule-day 
+    [isLoading]="isLoading()"
+    [schedule]="scheduleDay()"
+    (refresh)="onRefreshClick()"/> 
+</div>

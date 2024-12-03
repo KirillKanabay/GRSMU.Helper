@@ -47,7 +47,7 @@ export class ApiService {
   private handleError(err: any): Observable<never>{
     return throwError(() => err.error 
         ? err.error 
-        :{ errors: ["Сервер недоступен попробуйте позже!"] });
+        :{ status: 0, errors: ["Сервер недоступен попробуйте позже!"] });
   }
 
   private static createOptions(options?: Partial<HttpOptions>): HttpOptions {

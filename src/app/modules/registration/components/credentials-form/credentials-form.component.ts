@@ -71,7 +71,6 @@ export class CredentialsFormComponent implements OnInit {
       facultyId: this.form.controls.faculty.value!.id
     }).subscribe({
       next: (res) => {
-        console.log('next handled', res);
         subscription.unsubscribe();
         this.handleUpdateResponse(res);
       },

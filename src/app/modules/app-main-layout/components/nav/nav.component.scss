@@ -2,6 +2,10 @@
   flex: 1 1 auto;
 }
 
+.nav{
+  box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+
 .menuitem {
   &-link{
     width: 100%;
@@ -9,8 +13,8 @@
     justify-content: center;
 
     &--active {
-      border-color: #3B82F6;
-      color: #3B82F6;
+      border-color: var(--primary-color);
+      color: var(--primary-color);
     }
 
     &__container{
