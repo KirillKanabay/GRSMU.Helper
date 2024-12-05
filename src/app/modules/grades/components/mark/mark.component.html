@@ -1,0 +1,5 @@
+@if(isText()){
+  <span [class]="getMarkStyle()">{{mark().mark}}</span>
+} @else {
+  <p-tag [value]="mark().mark" [severity]="getTagSeverity()" />
+}

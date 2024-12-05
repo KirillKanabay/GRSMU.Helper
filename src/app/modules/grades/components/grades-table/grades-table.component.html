@@ -1,0 +1,34 @@
+@if(!isLoading()){
+  <p-table 
+    [value]="gradebook()!.marks"
+    styleClass="p-datatable-sm p-datatable-striped"
+    [style]="{'text-align':'center'}">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Дата</th>
+        <th colspan="2">Тип</th>
+        <th>Оценка</th>
+        <!-- <th [style]="{'width' : '20px'}"></th> -->
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-mark>
+      <tr [class]="{
+        'mark__row--important' : isImportantMark(mark)
+      }">
+        <td>{{ mark.parsedDate | date: 'dd/MM/yyyy' }}</td>
+        <td colspan="2">{{ mark.activityType | markActivityType }}</td>
+        <td><app-mark [mark]="mark"/></td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr class="p-rowgroup-footer">
+        <td>ТКср: {{gradebook()!.currentAverageMark}}</td>
+        <td>ПКср: {{gradebook()!.totalAverageMark}}</td>
+        <td>Экзамен: {{gradebook()!.examMark || '-'}}</td>
+        <td><p-button [text]="true" icon="pi pi-refresh" (click)="onRefreshClick()"/></td>
+    </tr>
+  </ng-template>
+  </p-table>
+} @else {
+  <app-spinner/>
+}

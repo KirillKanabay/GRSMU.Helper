@@ -1,0 +1,28 @@
+<div class="search-container">
+  <form [formGroup]="searchForm">
+    <p-iconField iconPosition="left">
+      <p-inputIcon styleClass="pi pi-search"/>
+      <input
+        type="search" 
+        pInputText 
+        placeholder="Поиск" 
+        [formControl]="searchForm.controls.searchQuery"/>
+    </p-iconField>
+  </form>
+</div>
+
+<div class="disciplines-container">
+  @if(!isLoading()){
+    <p-accordion [(activeIndex)]="activeIndex">
+      @for (discipline of disciplines(); track $index) {
+          <p-accordionTab [header]="discipline.value">
+            @if(activeIndex == $index){
+              <app-grades-table [disciplineId]="discipline.id"/>
+            }
+          </p-accordionTab>
+      }
+    </p-accordion>
+  } @else {
+    <app-spinner/>
+  }
+</div>

@@ -1,0 +1,14 @@
+::ng-deep {
+  table{
+    th, td{
+      text-align: center;
+    }
+  }
+}
+.mark{
+  &__row{
+    &--important{
+      font-weight: 900;
+    }
+  }
+}
