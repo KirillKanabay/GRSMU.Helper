@@ -9,6 +9,9 @@ import { AccordionModule } from 'primeng/accordion';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SkeletonModule } from 'primeng/skeleton';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { InputTextModule } from 'primeng/inputtext';
     IconFieldModule,
     InputIconModule,
     InputTextModule,
+    ReactiveFormsModule,
+    SkeletonModule,
+    ProgressSpinnerModule
   ]
 })
 export class GradesModule { }
