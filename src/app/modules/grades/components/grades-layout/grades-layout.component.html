@@ -1,0 +1,16 @@
+<div class="search-container">
+  <p-iconField iconPosition="left">
+    <p-inputIcon styleClass="pi pi-search" />
+    <input type="text" pInputText placeholder="Поиск" />
+  </p-iconField>
+</div>
+
+<p-accordion [(activeIndex)]="activeIndex">
+  @for (discipline of disciplines; track $index) {
+      <p-accordionTab [header]="discipline.name">
+        @if(activeIndex == $index){
+          <app-marks-table [marks]="discipline.marks"/>
+        }
+      </p-accordionTab>
+  }
+</p-accordion>

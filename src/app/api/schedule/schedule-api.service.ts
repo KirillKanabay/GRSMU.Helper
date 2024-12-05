@@ -7,12 +7,12 @@ import { toISODate } from "../../utils/dateUtils";
 @Injectable({ providedIn: 'root' })
 export class ScheduleApiService {
 
-  public static readonly SEARCH_BY_DATE = 'schedule/by-date';
+  public static readonly SEARCH_BY_DATE_ENDPOINT = 'schedule/by-date';
   
   constructor(private readonly _apiService: ApiService) {}
 
   public searchByDate(date: Date, forceRefresh = false) : Observable<ScheduleDayModel> {
-    return this._apiService.get(ScheduleApiService.SEARCH_BY_DATE, {params: { 
+    return this._apiService.get(ScheduleApiService.SEARCH_BY_DATE_ENDPOINT, {params: { 
       date: toISODate(date), 
       forceRefresh: forceRefresh.toString() 
     }})
