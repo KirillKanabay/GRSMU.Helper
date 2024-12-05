@@ -16,15 +16,13 @@
     <p-accordion [(activeIndex)]="activeIndex">
       @for (discipline of disciplines(); track $index) {
           <p-accordionTab [header]="discipline.value">
-            <!-- @if(activeIndex == $index){
-              <app-marks-table [marks]="discipline.marks"/>
-            } -->
+            @if(activeIndex == $index){
+              <app-grades-table [disciplineId]="discipline.id"/>
+            }
           </p-accordionTab>
       }
     </p-accordion>
   } @else {
-    <div class="spinner-container">
-      <p-progressSpinner ariaLabel="loading" [style]="{'width': '50px'}"/>
-    </div>
+    <app-spinner/>
   }
 </div>

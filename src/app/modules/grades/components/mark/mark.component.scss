@@ -1,0 +1,10 @@
+.mark{
+  &--green{
+    font-weight: 900;
+    color: var(--green-500)
+  }
+  &--red{
+    font-weight: 900;
+    color: var(--red-500);
+  }
+}
